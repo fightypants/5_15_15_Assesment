@@ -1,8 +1,22 @@
 <h4>Oops there were some errors:</h4>
 
+
+<% if @for_bands %>
 <ul>
   <% @bands.errors().full_messages().each do |message| %>
   <li><%= message %></li>
   <% end %>
 </ul>
+
 <h5><a href='/' > Return to main page to try again</a></h5>
+
+<% else %>
+<ul>
+  <% @venue.errors().full_messages().each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+
+
+<h5><a href='/bands/<%= @band.id %>' > Return to <%= @band.name() %> page to try again</a></h5>
+<% end %>

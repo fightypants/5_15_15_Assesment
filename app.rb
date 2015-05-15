@@ -8,6 +8,7 @@ erb(:index)
 end
 
 post('/bands') do
+  @for_bands = true
   name = params.fetch('name')
   @bands = Band.create({:name => name})
   if @bands.save
