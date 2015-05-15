@@ -9,3 +9,9 @@
 <% else %>
     <p>Add some bands to start tracking!</p>
 <% end %>
+
+<form action="/bands" method="post">
+  <label for='name'>Name:</label>
+  <input id='name' name='name' type='text'>
+  <button type="submit">Add Band</button>
+</form>

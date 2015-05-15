@@ -6,3 +6,13 @@ get('/') do
 @bands = Band.all
 erb(:index)
 end
+
+post('/bands') do
+  name = params.fetch('name')
+  @bands = Band.create({:name => name})
+  if @bands.save
+    redirect to('/')
+  else
+    erb(:errors)
+  end
+end
