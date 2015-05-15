@@ -1,0 +1,11 @@
+<h1>Welcome to Band Tracker</h1>
+
+<% if @bands.any?() %>
+  <ul>
+    <% @bands.each() do |band| %>
+    <li><a href='/bands/<%= band.id %>'><%= band.name() %></a></li>
+  </ul>
+<% end %>
+<% else %>
+    <p>Add some bands to start tracking!</p>
+<% end %>
