@@ -1,3 +1,9 @@
 <h3><%= @band.name() %></h3>
 
 <h5><a href='/' > Return to main page</a></h5>
+
+
+<form action='/bands/<%= @band.id %>' method='post'>
+  <input name='_method' type='hidden' value='delete'>
+  <button id='delete_category' class='btn-danger'>Delete band</button>
+</form>

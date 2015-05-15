@@ -17,8 +17,13 @@ post('/bands') do
   end
 end
 
-
 get('/bands/:id') do
   @band = Band.find(params.fetch('id').to_i)
   erb(:band)
+end
+
+delete('/bands/:id') do
+  @band = Band.find(params.fetch('id').to_i)
+  @band.delete
+  redirect to ('/')
 end
