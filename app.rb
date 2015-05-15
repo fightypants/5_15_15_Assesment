@@ -44,3 +44,19 @@ post('/bands/:band_id/venues') do
       erb(:errors)
   end
 end
+
+get('/venues')do
+  @venues = Venue.all
+  erb(:venue)
+end
+
+post('/venues')do
+  @for_venues = true
+  name = params.fetch('name')
+  @venue = Venue.create({:name => name})
+  if @venue.save
+    redirect to('/venues')
+  else
+    erb(:errors)
+  end
+end

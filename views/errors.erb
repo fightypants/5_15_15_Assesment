@@ -10,6 +10,15 @@
 
 <h5><a href='/' > Return to main page to try again</a></h5>
 
+<% elsif @for_venues %>
+<ul>
+  <% @venue.errors().full_messages().each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+
+<h5><a href='/venues' > Return to main page to try again</a></h5>
+
 <% else %>
 <ul>
   <% @venue.errors().full_messages().each do |message| %>
