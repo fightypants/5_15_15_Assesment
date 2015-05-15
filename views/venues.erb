@@ -1,0 +1,13 @@
+<h3>Welcome to the Venues List</h3>
+
+<% if @venues.any?() %>
+  <ul>
+    <% @venues.each() do |venue| %>
+    <li><a href='/venues/<%= venue.id %>'><%= venue.name() %></a></li>
+  </ul>
+<% end %>
+<% else %>
+    <p>Add some venues!</p>
+<% end %>
+
+<h5><a href='/'>Return to main page</a></h5>

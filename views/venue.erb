@@ -1,17 +1,10 @@
-<h3>Welcome to the Venues List</h3>
+<h3><%= @venue.name() %></h3>
 
-<% if @venues.any?() %>
-  <ul>
-    <% @venues.each() do |venue| %>
-    <li><a href='/venues/<%= venue.id %>'><%= venue.name() %></a></li>
-  </ul>
-<% end %>
-<% else %>
-    <p>Add some venues!</p>
-<% end %>
+<h4>List of bands playing at this venue:</h4>
+<ul>
+  <% @venue.bands.each do |band| %>
+    <li> <%= band.name %></li>
+    <% end %>
+</ul>
 
-<form action="/venues" method="post">
-  <label for='name'>Name:</label>
-  <input id='name' name='name' type='text'>
-  <button type="submit">Add Venue</button>
-</form>
+<h5><a href='/'>Return to main page</a></h5>

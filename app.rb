@@ -45,12 +45,12 @@ post('/bands/:band_id/venues') do
   end
 end
 
-get('/venues')do
+get('/venues') do
   @venues = Venue.all
-  erb(:venue)
+  erb(:venues)
 end
 
-post('/venues')do
+post('/venues') do
   @for_venues = true
   name = params.fetch('name')
   @venue = Venue.create({:name => name})
@@ -59,4 +59,9 @@ post('/venues')do
   else
     erb(:errors)
   end
+end
+
+get('/venues/:id') do
+  @venue = Venue.find(params.fetch('id').to_i)
+  erb(:venue)
 end
