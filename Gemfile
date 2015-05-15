@@ -10,7 +10,7 @@ group(:test) do
   gem('rspec')
   gem('pry')
   gem('capybara', :require => 'capybara/rspec')
-  gem ('shoulda-matchers')
+  gem('shoulda-matchers')
 end
 
 group(:production) do
