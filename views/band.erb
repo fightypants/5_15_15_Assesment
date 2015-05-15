@@ -1,7 +1,21 @@
 <h3><%= @band.name() %></h3>
 
-<h5><a href='/' > Return to main page</a></h5>
+<h4>List of venues:</h4>
+<% if @band.venues.any?() %>
+  <ul>
+    <% @band.venues.each do |venue| %>
+      <li> <%= venue.name %></li>
+      <% end %>
+</ul>
 
+<% else %>
+  <p>This band is not playing anywhere, add some venues!</p>
+<% end %>
+
+<a href='/bands/<%= @band.id %>/venues/new'>Add a Venue</a>
+
+
+<h5><a href='/'>Return to main page</a></h5>
 
 <form action='/bands/<%= @band.id %>' method='post'>
   <input name='_method' type='hidden' value='delete'>

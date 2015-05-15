@@ -1,0 +1,7 @@
+<h3>Add a Venue for <%= @band.name() %></h3>
+
+<form action="/bands/<%= @band.id %>/venues" method="post">
+  <label for="name">Name:</label>
+  <input id="name" name="name" type="text">
+  <button type="submit">Add Venue</button>
+</form>

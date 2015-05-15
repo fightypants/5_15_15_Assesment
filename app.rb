@@ -27,3 +27,19 @@ delete('/bands/:id') do
   @band.delete
   redirect to ('/')
 end
+
+get('/bands/:band_id/venues/new') do
+  @band = Band.find(params.fetch('band_id').to_i)
+  erb(:venue_form)
+end
+
+post('/bands/:band_id/venues') do
+  @band = Band.find(params.fetch('band_id').to_i)
+  name = params.fetch('name')
+  @venue = @band.venues.create({:name => name})
+    if @venue.save
+      redirect("/bands/#{@band.id}")
+    else
+      erb(:errors)
+  end
+end
