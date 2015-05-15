@@ -7,14 +7,11 @@ require('./app')
 
 RSpec.configure do |config|
   config.after(:each) do
-    Category.all().each() do |category|
-      category.destroy()
+    Band.all().each() do |band|
+      band.destroy()
     end
-    Recipe.all().each() do |recipe|
-      recipe.destroy()
-    end
-    Ingredient.all().each() do |ingredient|
-      ingredient.destroy()
+    Venue.all().each() do |venue|
+      venue.destroy()
     end
   end
 end
